@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { assets } from "../assets/assets";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [menu, setMenu] = useState("home");
@@ -12,25 +13,25 @@ const Navbar = () => {
           onClick={() => setMenu("home")}
           className={menu === "home" ? "active" : ""}
         >
-          home
+          <Link to="/">Home</Link>
         </li>
         <li
           onClick={() => setMenu("menu")}
           className={menu === "menu" ? "active" : ""}
         >
-          menu
+          <Link to="/menu">menu</Link>
         </li>
         <li
           onClick={() => setMenu("mobile")}
           className={menu === "mobile" ? "active" : ""}
         >
-          mobile app
+          <Link to="/menu">Mobile app</Link>
         </li>
         <li
           onClick={() => setMenu("contact")}
           className={menu === "contact" ? "active" : ""}
         >
-          contact us
+          <Link to="/menu">Contact us</Link>
         </li>
       </ul>
       <div className="flex items-center gap-6">
