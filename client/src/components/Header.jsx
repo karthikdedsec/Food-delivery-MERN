@@ -3,20 +3,18 @@ const Header = () => {
     <div
       style={{
         backgroundImage: 'url("/header_img.png")',
-        height: "34vw",
-        margin: "32px auto",
         backgroundRepeat: "no-repeat",
-        backgroundSize: "contain",
+        backgroundSize: "cover",
         position: "relative",
         width: "90%",
       }}
-      className="flex justify-center items-center"
+      className="md:flex min-w-full mx-auto rounded-3xl h-[64vw] md:h-[34vw]"
     >
       <div className="absolute flex flex-col items-start gap-3 max-w-[50%] bottom-[10%] left-[6vw] animate-fade-in">
-        <h2 className="text-6xl text-white font-bold">
+        <h2 className="text-xl md:text-3xl lg:text-6xl text-white font-bold">
           Order your favourite food here
         </h2>
-        <p className="text-white">
+        <p className="text-white text-sm lg:text-md">
           Savor the Flavor: Order Now for Delectable Delights Delivered Directly
           to Your Doorstep!
         </p>

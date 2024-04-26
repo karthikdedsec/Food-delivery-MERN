@@ -35,7 +35,6 @@ const Navbar = () => {
         </li>
       </ul>
       <div className="flex items-center gap-6">
-        <img className="hidden md:block" src={assets.search_icon} alt="" />
         <div className="dropdown dropdown-end">
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
             <div className="indicator">

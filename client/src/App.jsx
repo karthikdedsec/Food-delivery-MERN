@@ -10,7 +10,7 @@ import Footer from "./components/Footer";
 const App = () => {
   return (
     <BrowserRouter>
-      <div className="App min-h-screen">
+      <div className="App min-h-screen mx-2">
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -18,8 +18,8 @@ const App = () => {
           <Route path="/cart" element={<Cart />} />
           <Route path="/order" element={<PlaceOrder />} />
         </Routes>
-        <Footer />
       </div>
+      <Footer />
     </BrowserRouter>
   );
 };
