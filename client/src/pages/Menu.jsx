@@ -2,7 +2,7 @@ import { menu_list } from "../assets/assets";
 
 const Menu = ({ category, setCategory }) => {
   return (
-    <div className="space-y-9 mt-9">
+    <div className="space-y-9 mt-9 container">
       <h1 className="text-6xl font-semibold text-center">Explore our menu</h1>
       <p className="text-center">
         Savor the Flavor: Order Now for Delectable Delights Delivered Directly

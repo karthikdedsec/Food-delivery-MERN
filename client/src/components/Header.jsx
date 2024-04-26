@@ -4,11 +4,13 @@ const Header = () => {
       style={{
         backgroundImage: 'url("/header_img.png")',
         height: "34vw",
-        margin: "30px auto",
+        margin: "32px auto",
         backgroundRepeat: "no-repeat",
         backgroundSize: "contain",
         position: "relative",
+        width: "90%",
       }}
+      className="flex justify-center items-center"
     >
       <div className="absolute flex flex-col items-start gap-3 max-w-[50%] bottom-[10%] left-[6vw] animate-fade-in">
         <h2 className="text-6xl text-white font-bold">

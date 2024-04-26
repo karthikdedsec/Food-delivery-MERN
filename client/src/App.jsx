@@ -5,11 +5,12 @@ import Home from "./pages/Home";
 import Menu from "./pages/Menu";
 import Cart from "./pages/Cart";
 import PlaceOrder from "./pages/PlaceOrder";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
     <BrowserRouter>
-      <div className="App">
+      <div className="App min-h-screen">
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -17,6 +18,7 @@ const App = () => {
           <Route path="/cart" element={<Cart />} />
           <Route path="/order" element={<PlaceOrder />} />
         </Routes>
+        <Footer />
       </div>
     </BrowserRouter>
   );

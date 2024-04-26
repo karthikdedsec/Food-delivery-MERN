@@ -1,6 +1,6 @@
 const Card = ({ item }) => {
   return (
-    <div className="card bg-base-100 shadow-xl overflow-hidden animate-fade-in">
+    <div className="card bg-base-100 shadow-xl overflow-hidden animate-fade-in mx-3">
       <img
         className="object-contain hover:scale-110 transition duration-200 ease-in-out cursor-pointer"
         src={item.image}

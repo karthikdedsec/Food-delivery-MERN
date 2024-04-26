@@ -6,7 +6,7 @@ const Navbar = () => {
   const [menu, setMenu] = useState("home");
 
   return (
-    <div className="py-[20px] flex justify-between items-center">
+    <div className="py-[20px] flex justify-between items-center container">
       <img className="w-[150px]" src={assets.logo} alt="logo" />
       <ul className="md:flex hidden cursor-pointer list-none gap-3 text-[#49557e] text-lg">
         <li

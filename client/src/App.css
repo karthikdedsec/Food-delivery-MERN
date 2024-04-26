@@ -6,7 +6,7 @@
   box-sizing: border-box;
   font-family: Outfit;
 }
-.App {
+.container {
   width: 80%;
   margin: auto;
 }
