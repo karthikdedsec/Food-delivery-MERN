@@ -8,6 +8,7 @@ import PlaceOrder from "./pages/PlaceOrder";
 import Footer from "./components/Footer";
 import { useState } from "react";
 import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/cart" element={<Cart />} />
           <Route path="/order" element={<PlaceOrder />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/signUp" element={<SignUp />} />
         </Routes>
       </div>
       <Footer />

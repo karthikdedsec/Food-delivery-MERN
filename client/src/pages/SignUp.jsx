@@ -1,29 +1,33 @@
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 
-const Login = () => {
+const SignUp = () => {
   return (
     <div className="mt-10">
-      <h2 className="text-4xl font-semibold text-center">Login</h2>
+      <h2 className="text-4xl font-semibold text-center">Sign up</h2>
       <div className="max-w-lg p-9 mx-auto rounded-xl bg-slate-100 my-10">
         <form>
           <div className="space-y-7">
             <label className="flex flex-col">
-              <span>email</span>
+              <span>Name</span>
               <input className="p-1" type="text" />
             </label>
             <label className="flex flex-col">
+              <span>email</span>
+              <input className="p-1" type="email" />
+            </label>
+            <label className="flex flex-col">
               <span>password</span>
-              <input className="p-1" type="text" />
+              <input className="p-1" type="password" />
             </label>
             <div className="flex items-center gap-2">
-              <p>New To Tomato?</p>
-              <Link to="/signUp" className="text-[tomato]">
-                Sign up
+              <p>Have an account?</p>
+              <Link to="/login" className="text-[tomato]">
+                login
               </Link>
             </div>
             <button className="btn w-full text-lg text-white bg-green-400">
-              login
+              Sign up
             </button>
           </div>
           <p className="text-center font-bold my-2">OR</p>
@@ -35,4 +39,4 @@ const Login = () => {
     </div>
   );
 };
-export default Login;
+export default SignUp;
