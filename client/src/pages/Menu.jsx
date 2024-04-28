@@ -1,6 +1,9 @@
+import { useState } from "react";
 import { menu_list } from "../assets/assets";
+import MenuDisplay from "../components/MenuDisplay";
 
-const Menu = ({ category, setCategory }) => {
+const Menu = () => {
+  const [category, setCategory] = useState("All");
   return (
     <div className="space-y-9 mt-9 container">
       <h1 className="text-6xl font-semibold text-center">Explore our menu</h1>
@@ -25,6 +28,7 @@ const Menu = ({ category, setCategory }) => {
         ))}
       </div>
       <hr className="m-6 h-[2px] bg-[#e2e2e2] border-none" />
+      <MenuDisplay category={category} />
     </div>
   );
 };

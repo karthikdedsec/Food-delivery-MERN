@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { assets } from "../assets/assets";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [menu, setMenu] = useState("home");
+  const navigate = useNavigate();
 
   return (
     <div className="py-[20px] flex justify-between items-center container">
@@ -68,7 +69,10 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        <button className="bg-transparent cursor-pointer hover:bg-orange-200 hover:text-white text-base text-[#49557e] border-orange-400 border-2 rounded-md py-[10px] px-[30px] transition duration-200">
+        <button
+          onClick={() => navigate("/login")}
+          className="bg-transparent cursor-pointer hover:bg-orange-200 hover:text-white text-base text-[#49557e] border-orange-400 border-2 rounded-md py-[10px] px-[30px] transition duration-200"
+        >
           sign in
         </button>
       </div>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Header from "../components/Header";
 import Menu from "./Menu";
-import MenuDisplay from "../components/MenuDisplay";
+
 import AppDownload from "../components/AppDownload";
 
 const Home = () => {
@@ -10,8 +10,14 @@ const Home = () => {
   return (
     <div className="container">
       <Header />
-      <Menu category={category} setCategory={setCategory} />
-      <MenuDisplay category={category} />
+      <div className="min-h-screen flex flex-col justify-center items-center">
+        <h1 className="text-6xl font-semibold text-center">Explore our menu</h1>
+        <p className="text-center">
+          Savor the Flavor: Order Now for Delectable Delights Delivered Directly
+          to Your Doorstep!
+        </p>
+      </div>
+
       <AppDownload />
     </div>
   );
