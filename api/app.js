@@ -8,6 +8,7 @@ dotenv.config({ path: "config/config.env" });
 
 //connect database
 connectDatabase();
+app.use(express.json());
 
 // routes
 app.use("/api/v1/", productRoute);
