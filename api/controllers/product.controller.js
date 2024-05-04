@@ -1,4 +1,5 @@
 import Product from "../models/product.js";
+import ErrorHandler from "../utils/errorHandler.js";
 
 //create new product - api/v1/admin/products/new
 export const newProduct = async (req, res, next) => {
@@ -22,6 +23,10 @@ export const getProducts = async (req, res, next) => {
 export const getProduct = async (req, res, next) => {
   let product = await Product.findById(req.params.id);
 
+  if (!product) {
+    return next(new ErrorHandler("product not found", 404));
+  }
+
   res.status(200).json({
     product,
   });
@@ -32,9 +37,7 @@ export const updateProduct = async (req, res, next) => {
   let product = await Product.findById(req.params.id);
 
   if (!product) {
-    return res.status(404).json({
-      message: "product not found",
-    });
+    return next(new ErrorHandler("product not found", 404));
   }
 
   product = await Product.findByIdAndUpdate(req?.params?.id, req.body, {
@@ -51,9 +54,7 @@ export const deleteProduct = async (req, res, next) => {
   let product = await Product.findById(req.params.id);
 
   if (!product) {
-    return res.status(404).json({
-      error: "product not found",
-    });
+    return next(new ErrorHandler("product not found", 404));
   }
 
   product = await Product.findByIdAndDelete(req?.params?.id);
