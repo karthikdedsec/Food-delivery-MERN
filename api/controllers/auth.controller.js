@@ -10,7 +10,9 @@ export const register = catchAsyncErrors(async (req, res, next) => {
     password,
   });
 
+  const token = user.getJwtToken();
   res.status(201).json({
     message: "user created",
+    token,
   });
 });
