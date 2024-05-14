@@ -17,6 +17,15 @@ export default (err, req, res, next) => {
     error = new ErrorHandler(message, 404);
   }
 
+  //duplicate key error
+  if (err.code === 11000) {
+    const message = `${Object.keys(err.keyValue).map(
+      (key) => key
+    )} : ${Object.values(err.keyValue).map((val) => val)} already exists`;
+
+    error = new ErrorHandler(message, 400);
+  }
+
   res.status(error.statusCode).json({
     message: error.message,
     error: err,
