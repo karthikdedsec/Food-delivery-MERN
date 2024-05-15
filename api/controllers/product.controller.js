@@ -48,6 +48,7 @@ export const getProduct = catchAsyncErrors(async (req, res, next) => {
 //update product - api/v1/admin/products/:id
 export const updateProduct = catchAsyncErrors(async (req, res, next) => {
   let product = await Product.findById(req.params.id);
+  console.log(req?.user);
 
   if (!product) {
     return next(new ErrorHandler("product not found", 404));
