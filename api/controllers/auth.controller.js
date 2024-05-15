@@ -36,3 +36,10 @@ export const loginUser = catchAsyncErrors(async (req, res, next) => {
   }
   sendToken(user, 200, res);
 });
+
+//logout user => /api/v1/user/logout
+export const logoutUser = catchAsyncErrors(async (req, res, next) => {
+  res.clearCookie("token").json({
+    message: "logged out",
+  });
+});
