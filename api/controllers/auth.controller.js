@@ -4,6 +4,7 @@ import User from "../models/user.js";
 import sendToken from "../utils/sendToken.js";
 import { getPasswordResetTemplate } from "../utils/emailTemplate.js";
 import sendEmail from "../utils/sendEmail.js";
+import crypto from "crypto";
 
 //register user => /api/v1/user/register
 export const register = catchAsyncErrors(async (req, res, next) => {
@@ -79,6 +80,38 @@ export const forgotPassword = catchAsyncErrors(async (req, res, next) => {
 
     return next(new ErrorHandler(error?.message, 500));
   }
+});
+
+//reset password => /api/v1/user/password/reset/:token
+export const resetPassword = catchAsyncErrors(async (req, res, next) => {
+  const { password, confirmPassword } = req.body;
+  const resetPasswordToken = crypto
+    .createHash("sha256")
+    .update(req?.params?.token)
+    .digest("hex");
+
+  const user = await User.findOne({
+    resetPasswordToken,
+    resetPasswordExpire: { $gt: Date.now() },
+  });
+
+  if (!user) {
+    return next(
+      new ErrorHandler("invalid token or reset password link expired", 400)
+    );
+  }
+
+  if (password !== confirmPassword) {
+    return next(new ErrorHandler("password does not match", 400));
+  }
+
+  //set new password
+  user.password = password;
+
+  user.resetPasswordToken = undefined;
+  user.resetPasswordExpire = undefined;
+
+  await user.save();
 
   sendToken(user, 200, res);
 });
