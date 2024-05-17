@@ -13,3 +13,23 @@ export const getUser = catchAsyncErrors(async (req, res, next) => {
     user,
   });
 });
+
+//change or update password =? /api/v1/user/password/update
+export const updatePassword = catchAsyncErrors(async (req, res, next) => {
+  const { currentPassword, newPassword } = req.body;
+  const user = await User.findById(req?.user?._id).select("+password");
+
+  const compared = await user.comparePasswords(currentPassword);
+
+  if (!compared) {
+    return next(new ErrorHandler("current password is incorrect", 400));
+  }
+
+  user.password = newPassword;
+
+  user.save();
+
+  res.status(200).json({
+    message: "password updated successfully",
+  });
+});
