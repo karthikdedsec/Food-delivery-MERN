@@ -33,3 +33,19 @@ export const updatePassword = catchAsyncErrors(async (req, res, next) => {
     message: "password updated successfully",
   });
 });
+
+//update user profile
+export const updateProfile = catchAsyncErrors(async (req, res, next) => {
+  const userData = {
+    name: req.body.name,
+    email: req.body.email,
+  };
+
+  const user = await User.findByIdAndUpdate(req.user._id, userData, {
+    new: true,
+  });
+
+  res.status(200).json({
+    user,
+  });
+});
