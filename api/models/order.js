@@ -12,11 +12,11 @@ const orderSchema = new mongoose.Schema(
         required: true,
       },
       phoneNo: {
-        type: Number,
+        type: String,
         required: true,
       },
       zipCode: {
-        type: Number,
+        type: String,
         required: true,
       },
       country: {
@@ -97,4 +97,4 @@ const orderSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.Model("Order", orderSchema);
+export default mongoose.model("Order", orderSchema);
