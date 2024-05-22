@@ -31,3 +31,16 @@ export const createOrder = catchAsyncErrors(async (req, res, next) => {
     order,
   });
 });
+
+//get single order => /api/v1/orders/:id
+export const getOrderDetails = catchAsyncErrors(async (req, res, next) => {
+  const order = await Order.findById(req.params.id);
+
+  if (!order) {
+    return next(new ErrorHandler(`order not found with id : ${req.params.id}`));
+  }
+
+  res.status(200).json({
+    order,
+  });
+});
